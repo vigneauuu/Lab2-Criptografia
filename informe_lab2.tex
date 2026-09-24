@@ -317,7 +317,7 @@ De todo lo copiado, lo \textbf{imprescindible} para replicar la petición es: la
 \end{figure}
 
 \subsection{Utilización de curl por terminal (curl)}
-A partir de esa petición se construyeron dos invocaciones idénticas salvo por las credenciales: un \textbf{acceso válido} con un par real obtenido en el paso de Burp (\texttt{pablo/letmein}) y un \textbf{acceso inválido} con un usuario inexistente (\texttt{m.adonnis}). Ambos comandos quedaron guardados como scripts en la carpeta local \texttt{Lab2/code/} (\texttt{curl\_valido.sh}, \texttt{curl\_invalido.sh} y \texttt{curl\_diferencias.sh}): cada invocación envía la cookie de sesión autenticada con \texttt{-b}, guarda el cuerpo HTML con \texttt{-o} y las cabeceras con \texttt{-D}, e imprime con \texttt{-w} un resumen de código HTTP, tamaño y tiempo. La salida obtenida fue: \\
+A partir de esa petición se construyeron dos invocaciones idénticas salvo por las credenciales: un \textbf{acceso válido} con un par real obtenido en el paso de Burp (\texttt{pablo/letmein}) y un \textbf{acceso inválido} con un usuario inexistente (\texttt{m.vigneau}). Ambos comandos quedaron guardados como scripts en la carpeta local \texttt{Lab2/code/} (\texttt{curl\_valido.sh}, \texttt{curl\_invalido.sh} y \texttt{curl\_diferencias.sh}): cada invocación envía la cookie de sesión autenticada con \texttt{-b}, guarda el cuerpo HTML con \texttt{-o} y las cabeceras con \texttt{-D}, e imprime con \texttt{-w} un resumen de código HTTP, tamaño y tiempo. La salida obtenida fue: \\
 
 
 \begin{verbatim}

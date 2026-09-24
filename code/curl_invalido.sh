@@ -3,7 +3,7 @@ set -euo pipefail
 
 SID="${SID:-1c032b2b7f1885c25e5977d494ab8362}"
 BASE="http://localhost:4280/vulnerabilities/brute/"
-USER="m.adonnis"
+USER="m.vigneau"
 PASS="bbcbfghfgngfnfgng"
 
 curl -s -b "PHPSESSID=$SID; security=low" \
