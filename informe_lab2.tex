@@ -445,7 +445,6 @@ El tráfico se capturó en la interfaz \emph{loopback} con \texttt{tcpdump} (\te
 %\caption{Topología de la captura: las tres herramientas atacan a DVWA sobre la interfaz \emph{loopback}, donde \texttt{tcpdump} registra todo el tráfico HTTP en claro.}
 %\label{fig:topo}
 %\end{figure}
-No
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{2terminales_leyendotraficohydra_curl_burp.png}
@@ -535,7 +534,7 @@ En síntesis: cURL y Hydra producen peticiones \textbf{escuetas y de aspecto aut
     \centering
     \includegraphics[width=1.0\textwidth]{cabecerascompletas_cadapeticion.png}
     \caption{Cabeceras completas de las tres peticiones (cURL, Hydra y Burp) leídas del \texttt{.pcap} con \texttt{tcpdump -A}: se aprecian las diferencias en versión HTTP, \texttt{User-Agent}, y orden y cantidad de cabeceras.}
-\end{figure}
+\end{sidewaysfigure}
 
 \subsection{Detección de SW (tráfico)}
 Sí es posible identificar la herramienta que originó cada paquete:
