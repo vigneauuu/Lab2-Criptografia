@@ -580,4 +580,12 @@ El análisis de \textbf{tráfico} mostró que cada herramienta deja una \textbf{
 Como comentario final, operar una aplicación \emph{deliberadamente vulnerable} exigió \textbf{aislar el entorno} (publicación solo en \texttt{loopback}, red \emph{bridge} dedicada, contenedores sin privilegios y desmontaje de \texttt{/mnt/c}). En conjunto, el laboratorio no solo ejercita la técnica ofensiva, sino que hace evidentes las defensas que la neutralizan: \textbf{contraseñas robustas con hash salado, envío por POST sobre HTTPS, límites de intentos y bloqueo de cuentas, mensajes de error genéricos y monitorización de firmas de herramientas}. \\
 
 
+\newpage
+\section*{Anexo}
+\addcontentsline{toc}{section}{Anexo}
+
+Todas las imágenes utilizadas en este informe, los scripts de \texttt{curl} (\texttt{curl\_valido.sh}, \texttt{curl\_invalido.sh}, \texttt{curl\_diferencias.sh}), las wordlists reducidas (\texttt{users\_mod.txt}, \texttt{pass.txt}) y el archivo fuente \texttt{.tex} de este informe se encuentran disponibles en el siguiente repositorio de GitHub:
+
+\url{https://github.com/vigneauuu/Lab2-Criptografia.git}
+
 \end{document}
