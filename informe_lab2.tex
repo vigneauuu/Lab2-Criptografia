@@ -18,7 +18,6 @@
 \usepackage{tikz}
 \usetikzlibrary{positioning, arrows.meta, fit}
 
-
 \renewcommand{\tablename}{Tabla}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -38,7 +37,7 @@
 %
    \title{\Huge{Informe Laboratorio 2}}
 
-   \author{\textbf{Sección 4} \\  \\Alumno Matias Vigneau \\ e-mail: Matias.vigneau@mail.udp.cl}
+   \author{Sección 4 \\ Alumno Matías Vigneau \\ e-mail: Matias.vigneau@mail.udp.cl}
 
    \date{Septiembre de 2026}
 
@@ -79,19 +78,22 @@ Windows no queda montado dentro de Kali.
 
 Como paso previo se instaló el \emph{Docker Engine} nativo dentro de Kali (no Docker Desktop, que se
 integra con Windows), gestionado por systemd:
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\textwidth]{instalardocker.png}
+    \includegraphics[width=0.75\textwidth]{instalardocker.png}
     \caption{Instalación de Docker Engine (paquete \texttt{docker.io}) en Kali.}
 \end{figure}
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\textwidth]{activardocker.png}
+    \includegraphics[width=0.75\textwidth]{activardocker.png}
     \caption{Habilitación e inicio del servicio Docker mediante systemd.}
 \end{figure}
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\textwidth]{verificarversionygruo.png}
+    \includegraphics[width=0.75\textwidth]{verificarversionygruo.png}
     \caption{Verificación: Docker 28.5.2 instalado y servicio en estado \texttt{active}.}
 \end{figure}
 
@@ -108,35 +110,22 @@ El procedimiento de despliegue fue el siguiente:
     \item En \textbf{DVWA Security} configurar el nivel de seguridad en \textbf{Low}, requisito para que el formulario de \texttt{vulnerabilities/brute} sea vulnerable a fuerza bruta.
 \end{enumerate}
 
-%\textbf{Explicación de los parámetros utilizados:}
-%\begin{itemize}
- %   \item \texttt{docker run}: crea y ejecuta un nuevo contenedor a partir de una imagen.
- %  \item \texttt{-d} (detached): ejecuta el contenedor en segundo plano.
-  %  \item \texttt{-{}-name}: asigna un nombre fijo al contenedor (\texttt{dvwa}, \texttt{dvwa-db}) para gestionarlo con facilidad.
-   % \item \texttt{-{}-network dvwa-net}: conecta el contenedor a una red \emph{bridge} dedicada y aislada.
-    %\item \texttt{-p 127.0.0.1:4280:80}: publica el puerto (redirección) en formato \texttt{IP\_host:puerto\_host:puerto\_contenedor}; al fijar \texttt{127.0.0.1} el servicio solo queda accesible desde \emph{localhost}.
-    %\item \texttt{-{}-security-opt no-new-privileges}: impide que los procesos del contenedor escalen privilegios.
-    %\item \texttt{-{}-restart unless-stopped}: reinicia el contenedor automáticamente salvo que se detenga manualmente.
-    %\item \texttt{-{}-cpus} / \texttt{-{}-memory}: limitan los recursos que el contenedor puede consumir.
-    %item \texttt{-e VARIABLE=valor}: define variables de entorno (aquí, los datos de conexión a la base de datos).
-    %\item \texttt{ghcr.io/digininja/dvwa:latest} / \texttt{mariadb:lts}: nombres de las imágenes que se ejecutan.
-%\end{itemize}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\textwidth]{levantardocker.png}
+    \includegraphics[width=1\textwidth]{levantardocker.png}
     \caption{Creación de la red dedicada y levantamiento de los contenedores DVWA y MariaDB.}
     \label{fig:levantar}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\textwidth]{loginlocal.png}
+    \includegraphics[width=0.9\textwidth]{loginlocal.png}
     \caption{Acceso a DVWA en \texttt{http://localhost:4280} con las credenciales por defecto \texttt{admin/password}.}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\textwidth]{nivelseguridadLOW.png}
+    \includegraphics[width=0.9\textwidth]{nivelseguridadLOW.png}
     \caption{Configuración del nivel de seguridad de DVWA en \textbf{Low}.}
     \label{fig:low}
 \end{figure}
@@ -162,7 +151,7 @@ Para dejar constancia de que la redirección quedó efectivamente restringida a 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\textwidth]{verificacionaislamientored.png}
+    \includegraphics[width=0.85\textwidth]{verificacionaislamientored.png}
     \caption{Verificación del aislamiento de red: el servicio solo escucha en \emph{loopback} (\texttt{ss} en Kali, \texttt{netstat} en Windows), responde por \texttt{127.0.0.1} y resulta inalcanzable desde la IP de red de Kali.}
     \label{fig:aislamiento}
 \end{figure}
@@ -180,7 +169,7 @@ Burp Suite Community se ejecutó dentro de Kali. Se utilizó su navegador embebi
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{instalarburpsuit.png}
+    \includegraphics[width=0.75\textwidth]{instalarburpsuit.png}
     \caption{Instalación/inicio de Burp Suite Community en Kali.}
 \end{figure}
 
@@ -188,7 +177,7 @@ El formulario objetivo es \texttt{Vulnerabilities $\rightarrow$ Brute Force} de 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\textwidth]{bruteforce.png}
+    \includegraphics[width=0.85\textwidth]{bruteforce.png}
     \caption{Formulario objetivo: módulo \textit{Brute Force} de DVWA.}
 \end{figure}
 
@@ -207,7 +196,7 @@ Se observan tres parámetros relevantes: \\
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\textwidth]{primerburpsuitloginyclavervisibleenellink.png}
+    \includegraphics[width=0.9\textwidth]{primerburpsuitloginyclavervisibleenellink.png}
     \caption{Petición interceptada en Burp (Intercept ON): por el método GET, el usuario y la contraseña quedan expuestos en la URL.}
 \end{figure}
 
@@ -220,7 +209,7 @@ Al tener dos posiciones a probar de forma combinada, se seleccionó el tipo de a
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\textwidth]{addpayload.png}
+    \includegraphics[width=0.9\textwidth]{addpayload.png}
     \caption{Marcado de las posiciones de payload (\texttt{username} y \texttt{password}) y selección del ataque \textbf{Cluster bomb} en Intruder.}
 \end{figure}
 
@@ -237,7 +226,7 @@ El \emph{username} aparece en la columna ``First name'' y el hash MD5 en ``Surna
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\textwidth]{SQLparatenerusers.png}
+    \includegraphics[width=0.9\textwidth]{SQLparatenerusers.png}
     \caption{Volcado de la tabla \texttt{users} (usuarios y hashes MD5) mediante SQL Injection.}
     \label{fig:sqli}
 \end{figure}
@@ -278,14 +267,14 @@ En un primer intento el \emph{Cluster bomb} se lanzó \textbf{sin inyectar una c
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\textwidth]{ataqueburpsuit.png}
+    \includegraphics[width=0.9\textwidth]{ataqueburpsuit.png}
     \caption{Ejecución del ataque \textbf{Cluster bomb} en Intruder \textbf{sin sesión válida}: todas las peticiones responden \texttt{HTTP 302} (redirección a \texttt{login.php}). Con una sesión autenticada (Figura~\ref{fig:burp-valido}) pasan a \texttt{200} y el \texttt{Length} delata los aciertos.}
     \label{fig:burp-302}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\textwidth]{realcapturaluegodeserunloginreal.png}
+    \includegraphics[width=0.9\textwidth]{realcapturaluegodeserunloginreal.png}
     \caption{Resultados con una sesión válida: ordenados por \texttt{Length}, las filas resaltadas (longitud distinta a la baseline) son los logins correctos.}
     \label{fig:burp-valido}
 \end{figure}
@@ -311,13 +300,13 @@ De todo lo copiado, lo \textbf{imprescindible} para replicar la petición es: la
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\textwidth]{curl.png}
+    \includegraphics[width=0.9\textwidth]{curl.png}
     \caption{Obtención del código desde \emph{Inspect Element}: la pestaña \textbf{Network} muestra la petición del formulario \texttt{brute} (Status 200, tipo \emph{document}) de la que se copió el comando cURL.}
     \label{fig:curlcode}
 \end{figure}
 
 \subsection{Utilización de curl por terminal (curl)}
-A partir de esa petición se construyeron dos invocaciones idénticas salvo por las credenciales: un \textbf{acceso válido} con un par real obtenido en el paso de Burp (\texttt{pablo/letmein}) y un \textbf{acceso inválido} con un usuario inexistente (\texttt{m.vigneau}). Ambos comandos quedaron guardados como scripts en la carpeta local \texttt{Lab2/code/} (\texttt{curl\_valido.sh}, \texttt{curl\_invalido.sh} y \texttt{curl\_diferencias.sh}): cada invocación envía la cookie de sesión autenticada con \texttt{-b}, guarda el cuerpo HTML con \texttt{-o} y las cabeceras con \texttt{-D}, e imprime con \texttt{-w} un resumen de código HTTP, tamaño y tiempo. La salida obtenida fue: \\
+A partir de esa petición se construyeron dos invocaciones idénticas salvo por las credenciales: un \textbf{acceso válido} con un par real obtenido en el paso de Burp (\texttt{pablo/letmein}) y un \textbf{acceso inválido} con un usuario inexistente (\texttt{m.adonnis}). Ambos comandos quedaron guardados como scripts en la carpeta local \texttt{Lab2/code/} (\texttt{curl\_valido.sh}, \texttt{curl\_invalido.sh} y \texttt{curl\_diferencias.sh}): cada invocación envía la cookie de sesión autenticada con \texttt{-b}, guarda el cuerpo HTML con \texttt{-o} y las cabeceras con \texttt{-D}, e imprime con \texttt{-w} un resumen de código HTTP, tamaño y tiempo. La salida obtenida fue: \\
 
 
 \begin{verbatim}
@@ -350,7 +339,7 @@ De ahí se desprenden las siguientes diferencias entre el acceso válido y el in
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{validacionmanualdelburpsuit.png}
+    \includegraphics[width=0.8\textwidth]{validacionmanualdelburpsuit.png}
     \caption{Acceso válido (\texttt{pablo/letmein}): la respuesta muestra \emph{``Welcome to the password protected area pablo''} y el avatar del usuario, a diferencia del mensaje de error del acceso inválido.}
 \end{figure}
 
@@ -359,7 +348,7 @@ Hydra viene preinstalado en Kali Linux. Se verificó su ruta (\texttt{/usr/bin/h
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{hydrapreinstalado.png}
+    \includegraphics[width=1\textwidth]{hydrapreinstalado.png}
     \caption{Verificación de que Hydra está preinstalado (\texttt{/usr/bin/hydra}) y de su versión: \textbf{Hydra v9.7}.}
     \label{fig:hydra}
 \end{figure}
@@ -413,41 +402,18 @@ smithy  & password \\
 
 El par \texttt{1337/charley} no aparece porque \texttt{charley} no está en \texttt{500-worst-passwords} (es un nombre, no una contraseña común); para recuperarlo bastaría con añadirlo a la lista de contraseñas. Como ventaja frente a Burp Community, se destaca que Hydra procesó la totalidad de las combinaciones \textbf{sin problemas de memoria ni \emph{throttling}}, gracias a su ejecución multihilo y al procesamiento de las listas en \emph{streaming}. \\
 
-\begin{sidewaysfigure}[h]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\textwidth]{hydrafounds.png}
+    \includegraphics[width=1\textwidth]{hydrafounds.png}
     \caption{Salida verbosa de Hydra (\texttt{-V}): las líneas \texttt{[ATTEMPT]} muestran cada combinación probada y las líneas \texttt{[4280][http-get-form]} resaltan los pares válidos encontrados.}
-\end{sidewaysfigure}
+\end{figure}
 
 \subsection{Explicación paquete curl (tráfico)}
 El tráfico se capturó en la interfaz \emph{loopback} con \texttt{tcpdump} (\texttt{sudo tcpdump -i lo -s0 -w lab2\_traffic.pcap 'tcp port 4280'}) mientras se lanzaba cada herramienta, y luego se leyó con \texttt{tcpdump -A -r}.
 
-%\begin{figure}[H]
-%\centering
-%\begin{tikzpicture}[
- % font=\small,
-  %tool/.style={draw, rounded corners, thick, align=center, minimum width=3.4cm, minimum height=1cm},
-  %server/.style={draw, rounded corners, thick, align=center, fill=gray!12, minimum width=3cm, minimum height=1.5cm}
-%]
- % \node[tool, fill=blue!10]  (curl)  at (0,2)  {\textbf{cURL}\\[2pt]\texttt{curl/8.20.0}};
- % \node[tool, fill=red!12]   (hydra) at (0,0)  {\textbf{Hydra}\\[2pt]\texttt{Mozilla/5.0 (Hydra)}};
-  %\node[tool, fill=green!16] (burp)  at (0,-2) {\textbf{Burp} (navegador)\\[2pt]\texttt{...Chrome/146...}};
-  %\node[server] (dvwa) at (8.2,0) {\textbf{DVWA}\\[2pt]Apache\\[2pt]\texttt{127.0.0.1:4280}};
-
-  %\draw[-{Latex}, thick] (curl.east)  -- (dvwa.west);
-  %\draw[-{Latex}, thick] (hydra.east) -- (dvwa.west);
-  %\draw[-{Latex}, thick] (burp.east)  -- (dvwa.west);
-
-  %\node[draw, dashed, rounded corners, inner sep=13pt,
-   %     fit=(curl)(hydra)(burp)(dvwa),
-    %    label={[align=center]above:{\textbf{Interfaz \texttt{lo} (loopback)}\\[-1pt]\texttt{sudo tcpdump -i lo 'tcp port 4280'}}}] {};
-%\end{tikzpicture}
-%\caption{Topología de la captura: las tres herramientas atacan a DVWA sobre la interfaz \emph{loopback}, donde \texttt{tcpdump} registra todo el tráfico HTTP en claro.}
-%\label{fig:topo}
-%\end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\textwidth]{2terminales_leyendotraficohydra_curl_burp.png}
+    \includegraphics[width=1\textwidth]{2terminales_leyendotraficohydra_curl_burp.png}
     \caption{Montaje de la captura: \texttt{tcpdump} grabando en \texttt{lo} (arriba a la izquierda), Burp enviando una petición desde Repeater, y las corridas de cURL y Hydra contra \texttt{127.0.0.1:4280}.}
 \end{figure}
 \newpage
@@ -503,7 +469,7 @@ User-Agent: Mozilla/5.0 (Hydra)
 Connection: close
 \end{verbatim}
 
-Hydra también manda pocas cabeceras, pero con varias huellas distintivas: usa \textbf{HTTP/1.0} (versión más antigua), su \texttt{User-Agent} es \texttt{Mozilla/5.0 (Hydra)} (firma delatandose), añade \texttt{Connection: close}, coloca la cabecera \texttt{Cookie} \textbf{antes} de \texttt{Host} (orden atípico) con un doble espacio (\texttt{Cookie:\ \ PHPSESSID}), usa la IP en \texttt{Host} y \textbf{omite} el \texttt{Accept}. Además, antes del intento de login realiza una petición \emph{previa} a \texttt{/vulnerabilities/brute/} (sin parámetros) para cargar el formulario. \\
+Hydra también manda pocas cabeceras, pero con varias huellas distintivas: usa \textbf{HTTP/1.0} (versión más antigua), su \texttt{User-Agent} es \texttt{Mozilla/5.0 (Hydra)} (firma delatándose), añade \texttt{Connection: close}, coloca la cabecera \texttt{Cookie} \textbf{antes} de \texttt{Host} (orden atípico) con un doble espacio (\texttt{Cookie:\ \ PHPSESSID}), usa la IP en \texttt{Host} y \textbf{omite} el \texttt{Accept}. Además, antes del intento de login realiza una petición \emph{previa} a \texttt{/vulnerabilities/brute/} (sin parámetros) para cargar el formulario. \\
 
 
 \subsection{Mención de las diferencias (tráfico)}
@@ -530,11 +496,11 @@ Orden de cabeceras    & Host primero  & \textbf{Cookie primero}      & Host prim
 
 En síntesis: cURL y Hydra producen peticiones \textbf{escuetas y de aspecto automatizado} (pocas cabeceras, \texttt{Accept} genérico o ausente), mientras que Burp produce una petición \textbf{indistinguible de un navegador} porque reenvía la original. Hydra se diferencia además por usar HTTP/1.0 y un orden de cabeceras poco natural. \\
 
-\begin{sidewaysfigure}[h]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\textwidth]{cabecerascompletas_cadapeticion.png}
+    \includegraphics[width=\textwidth]{cabecerascompletas_cadapeticion.png}
     \caption{Cabeceras completas de las tres peticiones (cURL, Hydra y Burp) leídas del \texttt{.pcap} con \texttt{tcpdump -A}: se aprecian las diferencias en versión HTTP, \texttt{User-Agent}, y orden y cantidad de cabeceras.}
-\end{sidewaysfigure}
+\end{figure}
 
 \subsection{Detección de SW (tráfico)}
 Sí es posible identificar la herramienta que originó cada paquete:
@@ -544,12 +510,12 @@ Sí es posible identificar la herramienta que originó cada paquete:
     \item \textbf{Burp:} es el \textbf{más difícil} de detectar porque reenvía la petición real del navegador (mismo \texttt{User-Agent} de Chrome y todas sus cabeceras). Aun así deja rastros: la cabecera \texttt{Connection} \textbf{duplicada} (\texttt{keep-alive} + \texttt{Keep-Alive}) es un artefacto del proxy, y a nivel de comportamiento un ataque con Intruder genera una \textbf{ráfaga de peticiones idénticas y muy seguidas}, patrón poco habitual en un usuario real.
 \end{itemize}
 En conclusión, las herramientas automáticas (cURL y Hydra) se identifican de inmediato por su \texttt{User-Agent}; Burp exige un análisis más fino (anomalías de cabeceras y patrón temporal de las peticiones), pero también resulta detectable. \\ 
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{3traficos_firmas.png}
+    \includegraphics[width=1\textwidth]{3traficos_firmas.png}
     \caption{Las tres firmas \texttt{User-Agent} extraídas del \texttt{.pcap}: \texttt{curl/8.20.0}, \texttt{Mozilla/5.0 (Hydra)} y el \texttt{User-Agent} de Chrome (Burp). Los dos primeros delatan la herramienta directamente.}
 \end{figure}
-
 
 
 \section*{Conclusiones y comentarios}
@@ -559,7 +525,7 @@ El laboratorio permitió ejecutar y comparar un ciclo completo de ataque de fuer
 
 \begin{itemize}
     \item \textbf{Burp Suite (Community):} excelente para \emph{interceptar, entender y modificar} la petición (Intruder, \emph{Positions}, Cluster bomb), pero \textbf{inadecuada para fuerza bruta a escala}. Carga el diccionario completo en RAM, ya que \texttt{rockyou} la volvió inutilizable, y la edición gratuita \emph{throttlea} deliberadamente el ataque, además exige una sesión autenticada previa (\texttt{PHPSESSID}), sin la cual todo se redirige a \texttt{login.php}. Sirve como prueba de concepto controlada, no como motor de ataque masivo.
-    \item \textbf{Hydra:} la herramienta \emph{correcta para la escala}. Multihilo y procesando las listas en \emph{streaming}, resolvió más de $10^{4}$ combinaciones sin problemas de memoria ni de velocidad. Su desventaja es que es \textbf{ruidosa}: su \texttt{User-Agent} (\texttt{Mozilla/5.0 (Hydra)}) y el uso de HTTP/1.0 la delatan de inmediato.
+    \item \textbf{Hydra:} la herramienta \emph{correcta para la escala}. Multihilo y procesando las listas en \emph{streaming}, resolvió el total de combinaciones de \texttt{users\_mod.txt} $\times$ \texttt{500-worst-passwords.txt} (varios miles de intentos) sin problemas de memoria ni de velocidad. Su desventaja es que es \textbf{ruidosa}: su \texttt{User-Agent} (\texttt{Mozilla/5.0 (Hydra)}) y el uso de HTTP/1.0 la delatan de inmediato.
     \item \textbf{cURL:} herramienta \emph{de precisión}. No apunta al volumen, sino a \textbf{replicar una petición puntual} y comparar con precisión un acceso válido frente a uno inválido (5 diferencias observadas). Ideal para el análisis fino.
 \end{itemize}
 
@@ -584,6 +550,8 @@ Como comentario final, operar una aplicación \emph{deliberadamente vulnerable} 
 
 Todas las imágenes utilizadas en este informe, los scripts de \texttt{curl} (\texttt{curl\_valido.sh}, \texttt{curl\_invalido.sh}, \texttt{curl\_diferencias.sh}), las wordlists reducidas (\texttt{users\_mod.txt}, \texttt{pass.txt}) y el archivo fuente \texttt{.tex} de este informe se encuentran disponibles en el siguiente repositorio de GitHub:
 
+\begin{center}
 \url{https://github.com/vigneauuu/Lab2-Criptografia.git}
+\end{center}
 
 \end{document}
